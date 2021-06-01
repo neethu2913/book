@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%extends 'bookapp/home.html'%}
+
+{% block body_block%}
+<div class="container">
+   <div class="row">
+       <h1 style="color:red;">List all books</h1>
+       <hr>
+       {%for book in books%}
+       <div class="card" style="width: 23rem;border:2px solid black; color:black; background-color:lightgrey;">
+           <div class="card-body">
+             <h5 class="card-title">{{book.book_name}}</h5>
+               <p class="card-text">{{book.author}}</p>
+               <p class="card-text">{{book.prices}}</p>
+               <p class="card-text">{{book.pages}}</p>
+               <a href="{%url 'delete' book.id%}" class="btn btn-primary">Delete</a>
+               <a href="{%url 'update' book.id%}" class="btn btn-success">Update</a>
+           </div>
+       </div>
+   {% endfor %}
+   </div>
+</div>
+{%endblock%}
